@@ -144,16 +144,26 @@ export function IpodShell() {
             style={shellBodyStyle}
             aria-hidden={!flipped}
           >
+            {/* 5th gen Nano: video camera + mic in bottom-left (vertical pill, matches device reference) */}
+            <div
+              className="pointer-events-none absolute bottom-[6rem] left-3 z-10 flex h-[17px] w-[46px] origin-center -rotate-90 items-center justify-between rounded-full border border-white/35 bg-gradient-to-b from-[#ececee] to-[#9ea0a8] px-2 shadow-[inset_0_1px_1px_rgba(255,255,255,0.65),0_0_0_0.5px_rgba(0,0,0,0.12)]"
+              aria-hidden
+            >
+              <span className="h-[10px] w-[10px] shrink-0 rounded-full bg-[#050505] shadow-[inset_0_0_3px_rgba(255,255,255,0.12)] ring-[0.5px] ring-black/50" />
+              <span className="mb-px mr-px h-[3px] w-[3px] rounded-full bg-[#1c1c1c]" />
+            </div>
+
             <AppleLogo className="h-14 w-12" />
-            <p className="mt-3 font-[system-ui] text-[22px] font-light tracking-[0.02em] text-white/90">
-              iPod
-            </p>
+            <div className="mt-3 w-full text-center font-[system-ui] text-[22px] font-light tracking-[0.02em] text-white/90">
+              <p className="leading-none">iPod</p>
+              <p className="mt-1.5 leading-tight">Concert Diary</p>
+            </div>
             <div className="mt-auto w-full pt-6">
               <div className="mx-auto w-fit rounded-sm border border-white/20 bg-black/10 px-2 py-0.5 text-center text-[10px] font-medium text-white/75">
                 8GB
               </div>
               <p className="mt-3 text-center text-[5px] leading-relaxed text-white/35">
-                Model A1320 · Designed by Apple in California. Assembled in China.
+                Model A1320 · Riff by Tise in New York City. Assembled in Cursor.
                 <br />
                 FCC ID: BCGA1320 IC: 579C-A1320
               </p>
