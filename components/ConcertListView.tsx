@@ -1,6 +1,7 @@
 "use client";
 
 import Image from "next/image";
+import { cn } from "@/lib/cn";
 import { formatShortDate } from "@/lib/concert-utils";
 import { BatteryIcon } from "@/components/BatteryIcon";
 import { useIpod } from "@/components/IpodContext";
@@ -11,7 +12,7 @@ function concertPhotoSrc(photo: string | null): string | null {
 }
 
 export function ConcertListView() {
-  const { listIndex, currentList, yearFilter } = useIpod();
+  const { listIndex, currentList, yearFilter, listRowActivate } = useIpod();
 
   const title =
     yearFilter === "all" ? "All Concerts" : String(yearFilter);
@@ -21,10 +22,7 @@ export function ConcertListView() {
   return (
     <div className="flex h-full flex-col bg-[#c8c8c8] text-[#111]">
       <div
-        className="flex shrink-0 items-center justify-between px-2 py-1 text-[11px] font-bold text-white"
-        style={{
-          background: "linear-gradient(180deg, #4a90d9 0%, #2770c8 100%)",
-        }}
+        className="flex shrink-0 items-center justify-between bg-[#2770c8] px-2 py-1 text-[11px] font-bold text-white"
       >
         <span className="truncate">{title}</span>
         <BatteryIcon />
@@ -33,21 +31,20 @@ export function ConcertListView() {
         {currentList.map((c, i) => {
           const selected = i === listIndex;
           return (
-            <div
+            <button
               key={c.id}
-              className="flex items-center justify-between gap-1 border-b border-black/[0.06] px-2 py-1.5 transition-colors duration-100"
-              style={
+              type="button"
+              className={cn(
+                "flex w-full cursor-pointer items-center justify-between gap-1 border-b border-black/[0.06] px-2 py-1.5 text-left font-inherit transition-colors duration-100",
                 selected
-                  ? {
-                      background: "linear-gradient(180deg, #3a7fd4 0%, #1a5fc0 100%)",
-                      color: "#fff",
-                    }
-                  : undefined
-              }
+                  ? "bg-[#1a5fc0] text-white hover:bg-[#2568c4] active:bg-[#1f5aad]"
+                  : "bg-transparent hover:bg-black/[0.07] active:bg-black/[0.11]",
+              )}
+              onClick={() => listRowActivate(i)}
             >
               <span className="flex min-w-0 items-center gap-1.5">
                 {concertPhotoSrc(c.photo) ? (
-                  <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] bg-black/10 shadow-[inset_0_0_0_1px_rgba(0,0,0,0.12)]">
+                  <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10">
                     <Image
                       src={concertPhotoSrc(c.photo)!}
                       alt={c.artist}
@@ -77,7 +74,7 @@ export function ConcertListView() {
               >
                 {formatShortDate(c.date)}
               </span>
-            </div>
+            </button>
           );
         })}
       </div>

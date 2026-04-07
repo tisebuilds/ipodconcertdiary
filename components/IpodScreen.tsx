@@ -8,15 +8,20 @@ import { useIpod } from "@/components/IpodContext";
 
 type IpodScreenProps = {
   className?: string;
+  /** When true, no inner bezel — use when the screen is already inside a framed card (e.g. mobile). */
+  embedded?: boolean;
 };
 
-export function IpodScreen({ className }: IpodScreenProps) {
+export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
   const { view, transitionDir } = useIpod();
 
   return (
     <div
       className={cn(
-        "relative flex min-h-0 flex-col overflow-hidden rounded-[3px] bg-black shadow-[inset_0_0_0_1px_rgba(0,0,0,0.35)]",
+        "relative flex min-h-0 flex-col overflow-hidden bg-black",
+        embedded
+          ? "rounded-none border-0"
+          : "rounded-[3px] border border-[#222]",
         className,
       )}
     >

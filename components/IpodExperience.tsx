@@ -21,11 +21,7 @@ export function IpodExperience() {
 
   return (
     <div
-      className="flex min-h-screen items-center justify-center px-3 py-10"
-      style={{
-        background:
-          "radial-gradient(ellipse at center, #2a2a2a 0%, #111 55%, #080808 100%)",
-      }}
+      className="flex min-h-screen items-center justify-center bg-white px-3 py-10"
     >
       <IpodShell />
     </div>

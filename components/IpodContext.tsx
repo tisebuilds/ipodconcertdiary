@@ -46,6 +46,10 @@ interface IpodContextValue {
   scrollDown: () => void;
   center: () => void;
   playPause: () => void;
+  /** Same as scroll-to row + center — for mouse/touch on the menu list. */
+  menuRowActivate: (index: number) => void;
+  /** Same as scroll-to row + center — for mouse/touch on the concert list. */
+  listRowActivate: (index: number) => void;
 }
 
 const IpodContext = createContext<IpodContextValue | null>(null);
@@ -168,6 +172,35 @@ export function IpodProvider({ children }: { children: ReactNode }) {
     playPause,
   ]);
 
+  const menuRowActivate = useCallback(
+    (index: number) => {
+      if (index < 0 || index >= MENU_ROW_COUNT) return;
+      const y = menuIndexToYear(index);
+      goForward(() => {
+        setMenuIndex(index);
+        setYearFilter(y);
+        setListIndex(0);
+        setView("list");
+      });
+    },
+    [goForward],
+  );
+
+  const listRowActivate = useCallback(
+    (index: number) => {
+      if (view !== "list" || currentList.length === 0) return;
+      if (index < 0 || index >= currentList.length) return;
+      goForward(() => {
+        setListIndex(index);
+        setNowIndex(index);
+        setView("nowPlaying");
+        resetPlaybackForConcert();
+        setIsPlaying(true);
+      });
+    },
+    [view, currentList.length, goForward, resetPlaybackForConcert],
+  );
+
   useEffect(() => {
     if (!isPlaying || view !== "nowPlaying") return;
     const id = window.setInterval(() => {
@@ -208,6 +241,8 @@ export function IpodProvider({ children }: { children: ReactNode }) {
     scrollDown,
     center,
     playPause,
+    menuRowActivate,
+    listRowActivate,
   };
 
   return (

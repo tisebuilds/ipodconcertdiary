@@ -5,6 +5,15 @@
 :root {
   --screen-menu: #c8c8c8;
   --screen-now: #000000;
+  /* iPod shell + center button — one token for a flush, flat look */
+  --ipod-body: #f06ba8;
+  /* Flat click wheel ring */
+  --ipod-ring: #f0f0f0;
+}
+
+html,
+body {
+  background-color: #ffffff;
 }
 
 body {
@@ -42,15 +51,3 @@ body {
   animation: slide-back 0.3s ease-out;
 }
 
-@keyframes wheel-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
-}
-
-.animate-wheel-spin {
-  animation: wheel-spin 3s linear infinite;
-}
