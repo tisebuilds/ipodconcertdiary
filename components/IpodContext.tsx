@@ -161,7 +161,7 @@ export function IpodProvider({ children }: { children: ReactNode }) {
       setNowIndex(next);
       setListIndex(next);
       resetPlaybackForConcert();
-      setIsPlaying(false);
+      setIsPlaying(true);
     }
   }, [view, currentList.length, nowIndex, resetPlaybackForConcert]);
 
@@ -184,7 +184,7 @@ export function IpodProvider({ children }: { children: ReactNode }) {
       setNowIndex(next);
       setListIndex(next);
       resetPlaybackForConcert();
-      setIsPlaying(false);
+      setIsPlaying(true);
     }
   }, [view, currentList.length, nowIndex, resetPlaybackForConcert]);
 
