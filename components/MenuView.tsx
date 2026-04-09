@@ -43,7 +43,9 @@ export function MenuView() {
         <span className="flex justify-start">
           <AudioMuteButton />
         </span>
-        <span className="text-center font-sans tracking-tight">Tise's iPod</span>
+        <span className="text-center font-sans tracking-tight">
+          {"Tise's iPod"}
+        </span>
         <span className="flex justify-end">
           <BatteryIcon className="text-[#1E8E3E]" />
         </span>
