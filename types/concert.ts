@@ -11,4 +11,6 @@ export type Concert = {
   venue?: string;
   city?: string;
   notes?: string;
+  /** YouTube watch URL, youtu.be link, or 11-character video id (optional). */
+  youtubeVideoId?: string | null;
 };

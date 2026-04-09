@@ -28,7 +28,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
       <div
         key={view}
         className={cn(
-          "flex min-h-0 flex-1 flex-col",
+          "relative z-0 flex min-h-0 flex-1 flex-col",
           transitionDir === "forward"
             ? "animate-slide-forward"
             : "animate-slide-back",
@@ -38,6 +38,24 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
         {view === "list" ? <ConcertListView /> : null}
         {view === "nowPlaying" ? <NowPlayingView /> : null}
       </div>
+      {/* Glass cover: diagonal highlight like physical LCD stack */}
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 z-[1]",
+          embedded ? "rounded-none" : "rounded-[2px]",
+        )}
+        style={{
+          background: `linear-gradient(
+            128deg,
+            rgba(255, 255, 255, 0.5) 0%,
+            rgba(255, 255, 255, 0.16) 22%,
+            rgba(255, 255, 255, 0.05) 36%,
+            transparent 52%
+          )`,
+          boxShadow: "inset 0 0 0 1px rgba(255, 255, 255, 0.04)",
+        }}
+        aria-hidden
+      />
     </div>
   );
 }

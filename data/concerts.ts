@@ -1,5 +1,5 @@
 import type { Concert } from "@/types/concert";
 import data from "./concerts.json";
 
-/** Replace `photo` paths in concerts.json with real `/concerts/*.webp` files per show when ready. */
+/** `photo` in concerts.json is `/concerts/{id}.png` or `null` when no official image yet. */
 export const concerts: Concert[] = data as Concert[];

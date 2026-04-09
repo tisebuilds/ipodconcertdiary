@@ -1,6 +1,11 @@
-export function BatteryIcon() {
+type BatteryIconProps = {
+  className?: string;
+};
+
+export function BatteryIcon({ className }: BatteryIconProps) {
   return (
     <svg
+      className={className}
       width="22"
       height="10"
       viewBox="0 0 22 10"

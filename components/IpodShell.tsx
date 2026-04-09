@@ -41,22 +41,54 @@ function isEditableTarget(target: EventTarget | null): boolean {
 
 const shellBodyStyle: CSSProperties = {
   width: SHELL_WIDTH_PX,
+  /* Reference-style metal: soft body read + cylindrical edges + sharp right specular + rim shadow */
   background: `
     linear-gradient(
+      155deg,
+      rgba(255, 255, 255, 0.32) 0%,
+      rgba(255, 255, 255, 0.08) 22%,
+      transparent 46%
+    ),
+    linear-gradient(
+      180deg,
+      rgba(255, 255, 255, 0.16) 0%,
+      transparent 16%
+    ),
+    linear-gradient(
       90deg,
-      color-mix(in srgb, var(--ipod-body) 88%, #000) 0%,
+      transparent 0%,
+      transparent 84%,
+      rgba(255, 255, 255, 0.36) 90%,
+      rgba(255, 255, 255, 0.68) 92.2%,
+      rgba(255, 255, 255, 0.22) 93.6%,
+      rgba(0, 0, 0, 0.28) 97%,
+      rgba(0, 0, 0, 0.42) 100%
+    ),
+    linear-gradient(
+      90deg,
+      color-mix(in srgb, var(--ipod-body-deep) 92%, #000) 0%,
+      var(--ipod-body-edge) 11%,
       transparent 28%,
       transparent 72%,
-      color-mix(in srgb, var(--ipod-body) 88%, #000) 100%
+      color-mix(in srgb, var(--ipod-body-edge) 88%, var(--ipod-body)) 84%,
+      color-mix(in srgb, var(--ipod-body) 92%, #fff) 91%,
+      var(--ipod-body-deep) 100%
     ),
     radial-gradient(
-      ellipse 125% 120% at 50% 38%,
-      var(--ipod-body) 0%,
-      color-mix(in srgb, var(--ipod-body) 92%, #000) 100%
+      ellipse 128% 118% at 48% 34%,
+      color-mix(in srgb, var(--ipod-body) 96%, #fff) 0%,
+      var(--ipod-body) 46%,
+      color-mix(in srgb, var(--ipod-body) 72%, #000) 100%
     )
   `,
-  boxShadow:
-    "inset 0 0 72px rgba(0,0,0,0.055), 0 1px 2px rgba(0,0,0,0.05)",
+  boxShadow: `
+    inset 5px 0 14px rgba(0, 0, 0, 0.2),
+    inset -10px 0 18px rgba(0, 0, 0, 0.14),
+    inset 0 1px 0 rgba(255, 255, 255, 0.26),
+    inset 0 -1px 0 rgba(0, 0, 0, 0.14),
+    inset 0 0 56px rgba(0, 0, 0, 0.08),
+    0 1px 4px rgba(0, 0, 0, 0.1)
+  `,
 };
 
 function AppleLogo({ className }: { className?: string }) {

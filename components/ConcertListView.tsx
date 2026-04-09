@@ -1,14 +1,43 @@
 "use client";
 
 import Image from "next/image";
+import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
-import { formatShortDate } from "@/lib/concert-utils";
+import { concertPhotoSrc, formatShortDate } from "@/lib/concert-utils";
+import { AudioMuteButton } from "@/components/AudioMuteButton";
 import { BatteryIcon } from "@/components/BatteryIcon";
 import { useIpod } from "@/components/IpodContext";
+import type { Concert } from "@/types/concert";
 
-function concertPhotoSrc(photo: string | null): string | null {
-  if (!photo) return null;
-  return photo.startsWith("/") ? photo : `/concerts/${photo}`;
+function ListRowArt({ concert }: { concert: Concert }) {
+  const src = concertPhotoSrc(concert.photo);
+  const [broken, setBroken] = useState(false);
+
+  useEffect(() => {
+    setBroken(false);
+  }, [concert.id, src]);
+
+  if (!src || broken) {
+    return (
+      <span className="shrink-0 text-[13px] leading-none">{concert.emoji}</span>
+    );
+  }
+
+  return (
+    <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10">
+      <Image
+        key={`${concert.id}:${src}`}
+        src={src}
+        alt={concert.artist}
+        width={22}
+        height={22}
+        className="h-[22px] w-[22px] object-cover"
+        sizes="22px"
+        unoptimized
+        onError={() => setBroken(true)}
+      />
+    </span>
+  );
 }
 
 export function ConcertListView() {
@@ -17,17 +46,20 @@ export function ConcertListView() {
   const title =
     yearFilter === "all" ? "All Concerts" : String(yearFilter);
 
-  const needsScroll = currentList.length > 5;
-
   return (
-    <div className="flex h-full flex-col bg-[#c8c8c8] text-[#111]">
-      <div
-        className="flex shrink-0 items-center justify-between bg-[#2770c8] px-2 py-1 text-[11px] font-bold text-white"
-      >
-        <span className="truncate">{title}</span>
-        <BatteryIcon />
+    <div className="flex h-full flex-col bg-[#F5F7FA] text-[#111]">
+      <div className="grid shrink-0 grid-cols-[1fr_auto_1fr] items-center border-b border-[#2a2a2a] bg-gradient-to-b from-[#D1D7E2] to-[#BCC5D3] px-2 py-[5px] text-[11px] font-bold leading-none text-black">
+        <span className="flex justify-start">
+          <AudioMuteButton />
+        </span>
+        <span className="truncate text-center font-sans tracking-tight">
+          {title}
+        </span>
+        <span className="flex justify-end">
+          <BatteryIcon className="text-[#1E8E3E]" />
+        </span>
       </div>
-      <div className="relative min-h-0 flex-1 overflow-y-auto">
+      <div className="ipod-screen-scroll relative min-h-0 flex-1 overflow-y-auto">
         {currentList.map((c, i) => {
           const selected = i === listIndex;
           return (
@@ -35,42 +67,29 @@ export function ConcertListView() {
               key={c.id}
               type="button"
               className={cn(
-                "flex w-full cursor-pointer items-center justify-between gap-1 border-b border-black/[0.06] px-2 py-1.5 text-left font-inherit transition-colors duration-100",
+                "flex w-full cursor-pointer items-center justify-between gap-1 border-b border-black/[0.07] px-2.5 py-1.5 text-left font-inherit transition-[background,filter,box-shadow] duration-150 ease-out",
                 selected
-                  ? "bg-[#1a5fc0] text-white hover:bg-[#2568c4] active:bg-[#1f5aad]"
-                  : "bg-transparent hover:bg-black/[0.07] active:bg-black/[0.11]",
+                  ? "bg-gradient-to-b from-[#4B89D6] to-[#245DB3] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_0_0_1px_rgba(255,255,255,0.12),0_2px_10px_rgba(36,93,179,0.28)] hover:brightness-[1.03] active:brightness-[0.97]"
+                  : "bg-transparent shadow-none hover:bg-black/[0.04] active:bg-black/[0.07]",
               )}
               onClick={() => listRowActivate(i)}
             >
               <span className="flex min-w-0 items-center gap-1.5">
-                {concertPhotoSrc(c.photo) ? (
-                  <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10">
-                    <Image
-                      src={concertPhotoSrc(c.photo)!}
-                      alt={c.artist}
-                      width={22}
-                      height={22}
-                      className="h-[22px] w-[22px] object-cover"
-                      sizes="22px"
-                    />
-                  </span>
-                ) : (
-                  <span className="shrink-0 text-[13px] leading-none">
-                    {c.emoji}
-                  </span>
-                )}
+                <ListRowArt concert={c} />
                 <span
-                  className="truncate text-[12px] font-medium leading-tight"
-                  style={{ color: selected ? "#fff" : "#111" }}
+                  className={cn(
+                    "truncate text-[12px] font-bold leading-tight tracking-tight",
+                    selected ? "text-white" : "text-[#111]",
+                  )}
                 >
                   {c.artist}
                 </span>
               </span>
               <span
-                className="shrink-0 text-[10px] tabular-nums"
-                style={{
-                  color: selected ? "rgba(255,255,255,0.85)" : "rgba(17,17,17,0.65)",
-                }}
+                className={cn(
+                  "shrink-0 text-[10px] font-bold tabular-nums",
+                  selected ? "text-white/90" : "text-[#111]/75",
+                )}
               >
                 {formatShortDate(c.date)}
               </span>
@@ -78,11 +97,6 @@ export function ConcertListView() {
           );
         })}
       </div>
-      {needsScroll ? (
-        <div className="pointer-events-none shrink-0 py-0.5 text-center text-[8px] text-[#111]/45">
-          Scroll
-        </div>
-      ) : null}
     </div>
   );
 }
