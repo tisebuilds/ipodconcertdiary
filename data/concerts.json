@@ -109,7 +109,7 @@
     "artist": "Head In The Clouds",
     "year": 2023,
     "date": "2023-05-20",
-    "highlightSong": "2NE1 LIVE PERFORMANCE",
+    "highlightSong": "NIKI — Lowkey",
     "photo": "/concerts/hitc-2023.png",
     "accentColor": "#ff6b35",
     "venue": "Head In The Clouds Festival",
@@ -117,7 +117,7 @@
     "notes": "May 20–21, 2023",
     "emoji": "☁️",
     "bg": "linear-gradient(135deg,#1a0a00,#3d1800)",
-    "youtubeVideoId": "https://www.youtube.com/watch?v=wm6yv-VeQ64"
+    "youtubeVideoId": "https://www.youtube.com/watch?v=bo1m9epBAGU"
   },
   {
     "id": "coin-slope-day-2023",
@@ -139,7 +139,7 @@
     "artist": "Gov Ball",
     "year": 2023,
     "date": "2023-06-09",
-    "highlightSong": "Tyla - No.1 feat Tems",
+    "highlightSong": "Kendrick Lamar — DNA / HUMBLE.",
     "photo": "/concerts/gov-ball-2023.png",
     "accentColor": "#43aa8b",
     "venue": "Governors Ball",
@@ -147,7 +147,7 @@
     "notes": "June 9–11, 2023",
     "emoji": "🎪",
     "bg": "linear-gradient(135deg,#001a10,#003322)",
-    "youtubeVideoId": "https://www.youtube.com/watch?v=Ts8RGi8V-FM"
+    "youtubeVideoId": "https://www.youtube.com/watch?v=bhCfQ8BGow8"
   },
   {
     "id": "twice-2023",
@@ -259,28 +259,30 @@
     "artist": "Flo Rida",
     "year": 2024,
     "date": "2024-05-08",
-    "highlightSong": "Low",
+    "highlightSong": "Right Round",
     "photo": "/concerts/flo-rida-slope-day-2024.png",
     "accentColor": "#f72585",
     "venue": "Slope Day",
     "city": "Ithaca, NY",
     "notes": null,
     "emoji": "🏔️",
-    "bg": "linear-gradient(135deg,#1a001a,#330033)"
+    "bg": "linear-gradient(135deg,#1a001a,#330033)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=RjKxSegLTsU"
   },
   {
     "id": "hitc-nyc-2024",
     "artist": "Head In The Clouds NYC",
     "year": 2024,
     "date": "2024-05-11",
-    "highlightSong": "Merry Go Round",
+    "highlightSong": "(G)I-DLE — Queencard",
     "photo": "/concerts/hitc-nyc-2024.png",
     "accentColor": "#ff6b35",
     "venue": "Head In The Clouds Festival",
     "city": "New York, NY",
     "notes": null,
     "emoji": "☁️",
-    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)"
+    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=AKg_9dn_VmA"
   },
   {
     "id": "txt-2024",
@@ -317,56 +319,60 @@
     "artist": "Gov Ball",
     "year": 2024,
     "date": "2024-06-08",
-    "highlightSong": "Kill Bill",
+    "highlightSong": "SZA — Snooze",
     "photo": "/concerts/gov-ball-2024.png",
     "accentColor": "#43aa8b",
     "venue": "Governors Ball",
     "city": "New York, NY",
     "notes": "2 days",
     "emoji": "🎪",
-    "bg": "linear-gradient(135deg,#001a10,#003322)"
+    "bg": "linear-gradient(135deg,#001a10,#003322)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=ZhXgtF5CMDk"
   },
   {
     "id": "artms-2024",
     "artist": "ARTMS",
     "year": 2024,
     "date": "2024-08-16",
-    "highlightSong": "Dall-E",
+    "highlightSong": "Flower Rhythm",
     "photo": "/concerts/artms-2024.png",
     "accentColor": "#ff87c3",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🌸",
-    "bg": "linear-gradient(135deg,#1a0015,#33002a)"
+    "bg": "linear-gradient(135deg,#1a0015,#33002a)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=cCFKbHwOYEA"
   },
   {
     "id": "avatar-musical-2024",
     "artist": "Avatar: The Last Airbender",
     "year": 2024,
     "date": "2024-08-22",
-    "highlightSong": "Avatar's Love",
+    "highlightSong": "Avatar: The Last Airbender (Premiere Main Title)",
     "photo": "/concerts/avatar-musical-2024.png",
     "accentColor": "#1a9e6e",
     "venue": null,
     "city": null,
     "notes": "The Musical",
     "emoji": "🌊",
-    "bg": "linear-gradient(135deg,#001a12,#00332a)"
+    "bg": "linear-gradient(135deg,#001a12,#00332a)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=zMrMDvW5MaM"
   },
   {
     "id": "weeekly-2024",
     "artist": "Weeekly",
     "year": 2024,
     "date": "2024-09-12",
-    "highlightSong": "After School",
+    "highlightSong": "Hello",
     "photo": "/concerts/weeekly-2024.png",
     "accentColor": "#ffbe0b",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "📅",
-    "bg": "linear-gradient(135deg,#1a1400,#332800)"
+    "bg": "linear-gradient(135deg,#1a1400,#332800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=975ckKiXSNo"
   },
   {
     "id": "nct-dream-2024",
@@ -430,7 +436,7 @@
   },
   {
     "id": "kiof-2024",
-    "artist": "KIOF",
+    "artist": "Kiss of Life",
     "year": 2024,
     "date": "2024-11-16",
     "highlightSong": "Igloo",
@@ -448,14 +454,15 @@
     "artist": "Yves",
     "year": 2025,
     "date": "2025-01-21",
-    "highlightSong": "New",
+    "highlightSong": "Loop",
     "photo": "/concerts/yves-2025.png",
     "accentColor": "#ff6b6b",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🌹",
-    "bg": "linear-gradient(135deg,#2d0000,#5c1a1a)"
+    "bg": "linear-gradient(135deg,#2d0000,#5c1a1a)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=k8DfQ6goobE"
   },
   {
     "id": "aespa-2025",
@@ -537,28 +544,30 @@
     "artist": "Head In The Clouds",
     "year": 2025,
     "date": "2025-05-31",
-    "highlightSong": "Merry Go Round",
+    "highlightSong": "2NE1 — Reunion",
     "photo": "/concerts/hitc-2025.png",
     "accentColor": "#ff6b35",
     "venue": "Head In The Clouds Festival",
     "city": "New York, NY",
     "notes": "2 days — May 31 & June 1",
     "emoji": "☁️",
-    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)"
+    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=wm6yv-VeQ64"
   },
   {
     "id": "gov-ball-2025",
     "artist": "Gov Ball",
     "year": 2025,
     "date": "2025-06-06",
-    "highlightSong": "Festival Weekend",
+    "highlightSong": "Tyla — No. 1 feat. Tems",
     "photo": "/concerts/gov-ball-2025.png",
     "accentColor": "#43aa8b",
     "venue": "Governors Ball",
     "city": "New York, NY",
     "notes": "1 day",
     "emoji": "🎪",
-    "bg": "linear-gradient(135deg,#001a10,#003322)"
+    "bg": "linear-gradient(135deg,#001a10,#003322)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=Ts8RGi8V-FM"
   },
   {
     "id": "stray-kids-2025",
@@ -580,14 +589,15 @@
     "artist": "ATEEZ",
     "year": 2025,
     "date": "2025-07-13",
-    "highlightSong": "Crazy Form",
+    "highlightSong": "Bouncy",
     "photo": "/concerts/ateez-2025.png",
     "accentColor": "#e63946",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🎆",
-    "bg": "linear-gradient(135deg,#1a0000,#3d0000)"
+    "bg": "linear-gradient(135deg,#1a0000,#3d0000)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=Nl6unWjkv9k"
   },
   {
     "id": "blackpink-2025",
@@ -609,14 +619,15 @@
     "artist": "Lollapalooza",
     "year": 2025,
     "date": "2025-08-02",
-    "highlightSong": "Festival Weekend",
+    "highlightSong": "Martin Garrix & Bebe Rexha — In The Name Of Love",
     "photo": "/concerts/lollapalooza-2025.png",
     "accentColor": "#ffd166",
     "venue": "Grant Park",
     "city": "Chicago, IL",
     "notes": "July 31 – Aug 3",
     "emoji": "🎡",
-    "bg": "linear-gradient(135deg,#1a1400,#332800)"
+    "bg": "linear-gradient(135deg,#1a1400,#332800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=AeGfss2vsZg"
   },
   {
     "id": "enhypen-2025",
@@ -653,14 +664,15 @@
     "artist": "The Boyz",
     "year": 2025,
     "date": "2025-09-12",
-    "highlightSong": "No Air",
+    "highlightSong": "D.D.D.",
     "photo": "/concerts/the-boyz-2025.png",
     "accentColor": "#4ecdc4",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🩵",
-    "bg": "linear-gradient(135deg,#001a19,#003332)"
+    "bg": "linear-gradient(135deg,#001a19,#003332)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=0q4g4HmAV5w"
   },
   {
     "id": "p1harmony-2025",
