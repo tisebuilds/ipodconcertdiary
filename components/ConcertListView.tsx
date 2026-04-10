@@ -61,7 +61,7 @@ export function ConcertListView() {
           <BatteryIcon className="text-[#1E8E3E]" />
         </span>
       </div>
-      <div className="ipod-screen-scroll relative min-h-0 flex-1 overflow-y-auto">
+      <div className="ipod-screen-scroll relative min-h-0 flex-1">
         {currentList.map((c, i) => {
           const selected = i === listIndex;
           return (

@@ -50,7 +50,7 @@ export function MenuView() {
           <BatteryIcon className="text-[#1E8E3E]" />
         </span>
       </div>
-      <div className="ipod-screen-scroll min-h-0 flex-1 overflow-y-auto">
+      <div className="ipod-screen-scroll min-h-0 flex-1">
         {rows.map((row, i) => {
           const selected = i === menuIndex;
           return (

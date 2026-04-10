@@ -61,6 +61,8 @@ body {
 
 /* iPod LCD–style vertical scrollbar: pale track, 1px dark rule, sharp blue thumb */
 .ipod-screen-scroll {
+  /* scroll (not auto): persistent vertical scrollbar so the gutter isn’t an empty strip on overlay OSes */
+  overflow-y: scroll;
   scrollbar-gutter: stable;
   scrollbar-width: thin;
   scrollbar-color: var(--ipod-scrollbar-thumb) var(--ipod-scrollbar-track);

@@ -39,13 +39,13 @@ export function ConcertVenueBackdrop({ concert, active }: Props) {
             src={src}
             alt=""
             fill
-            className="scale-[1.15] object-cover blur-[6px] saturate-[1.08] brightness-[0.5]"
+            className="scale-[1.15] object-cover blur-[6px] saturate-[1.08] brightness-[0.7]"
             sizes="100vw"
             loading="eager"
             unoptimized
             onError={() => setBroken(true)}
           />
-          <div className="absolute inset-0 bg-black/40" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/12 via-black/5 to-black/20" />
         </>
       ) : concert && active ? (
         <>
@@ -53,7 +53,7 @@ export function ConcertVenueBackdrop({ concert, active }: Props) {
             className="absolute inset-0 scale-110 blur-[6px]"
             style={{ background: concert.bg }}
           />
-          <div className="absolute inset-0 bg-black/45" />
+          <div className="absolute inset-0 bg-gradient-to-b from-black/14 via-black/5 to-black/22" />
         </>
       ) : null}
     </div>
