@@ -86,23 +86,38 @@ export function ClickWheel() {
     "duration-[200ms] ease-[cubic-bezier(0.34,1.45,0.64,1)] " +
     "active:duration-[60ms] active:ease-out active:brightness-[0.82]";
 
+  const wheelScale =
+    "scale(calc(var(--ipod-wheel-size, 172px) / var(--ipod-wheel-artboard, 172px)))";
+
   return (
-    <div className="relative mx-auto h-[172px] w-[172px] shrink-0">
+    <div
+      className="relative mx-auto shrink-0"
+      style={{
+        width: "var(--ipod-wheel-size, 172px)",
+        height: "var(--ipod-wheel-size, 172px)",
+      }}
+    >
       <div
-        className={cn(
-          "absolute inset-0 origin-center rounded-full bg-[var(--ipod-ring)] transition-transform",
-          ringEaseRelease,
-          "has-[button:active]:scale-[0.981] has-[button:active]:duration-[60ms] has-[button:active]:ease-out",
-        )}
+        className="absolute left-1/2 top-1/2 h-[172px] w-[172px] origin-center will-change-transform"
         style={{
-          boxShadow: `
+          transform: `translate(-50%, -50%) ${wheelScale}`,
+        }}
+      >
+        <div
+          className={cn(
+            "absolute inset-0 origin-center rounded-full bg-[var(--ipod-ring)] transition-transform",
+            ringEaseRelease,
+            "has-[button:active]:scale-[0.981] has-[button:active]:duration-[60ms] has-[button:active]:ease-out",
+          )}
+          style={{
+            boxShadow: `
             inset -3px -4px 11px rgba(255, 255, 255, 0.42),
             inset 1px 2px 0 rgba(255, 255, 255, 0.22),
             inset 5px 7px 18px rgba(0, 0, 0, 0.16),
             inset 8px 12px 32px rgba(0, 0, 0, 0.11)
           `,
-        }}
-      >
+          }}
+        >
         <button
           type="button"
           aria-label="Menu"
@@ -170,6 +185,7 @@ export function ClickWheel() {
           )}
           onClick={center}
         />
+        </div>
       </div>
     </div>
   );

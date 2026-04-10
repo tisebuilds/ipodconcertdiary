@@ -3,6 +3,14 @@
 @tailwind utilities;
 
 :root {
+  /**
+   * Classic iPod–style UI: SF on Apple (via -apple-system), Segoe on Windows,
+   * Helvetica Neue / system sans elsewhere. Scoped to the LCD via .font-ipod.
+   */
+  --font-ipod-ui:
+    ui-sans-serif, system-ui, -apple-system, BlinkMacSystemFont, "Segoe UI",
+    Roboto, "Helvetica Neue", Helvetica, Arial, "Apple Color Emoji",
+    "Segoe UI Emoji", sans-serif;
   --screen-menu: #f5f7fa;
   --screen-now: #000000;
   /* Classic iPod list scrollbar (track / thumb — thumb matches selection blue) */
@@ -17,6 +25,9 @@
   --ipod-body-edge: color-mix(in srgb, var(--ipod-body) 88%, #fff);
   /* Flat click wheel ring */
   --ipod-ring: #f0f0f0;
+  /* Click wheel: fixed 172px layout, scaled to --ipod-wheel-size for layout box */
+  --ipod-wheel-artboard: 172px;
+  --ipod-wheel-size: 172px;
 }
 
 html,
@@ -31,6 +42,11 @@ body {
 
 /* Narrow layout (matches IpodExperience max-width: 399px): keep canvas white for overscroll / safe areas */
 @media (max-width: 399px) {
+  :root {
+    /* Grow with viewport width and (on tall phones) height so the wheel matches device scale */
+    --ipod-wheel-size: clamp(172px, min(56vw, 22vmax), 236px);
+  }
+
   html {
     background-color: #ffffff;
   }

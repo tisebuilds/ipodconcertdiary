@@ -54,7 +54,7 @@ export function ConcertListView() {
         <span className="flex justify-start">
           <AudioMuteButton />
         </span>
-        <span className="truncate text-center font-sans tracking-tight">
+        <span className="truncate text-center tracking-tight">
           {title}
         </span>
         <span className="flex justify-end">

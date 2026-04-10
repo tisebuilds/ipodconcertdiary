@@ -14,11 +14,11 @@ export function MobileConcertView({
   return (
     <div
       className={cn(
-        "flex min-h-[100dvh] w-full flex-col bg-white [color-scheme:light]",
+        "flex min-h-[100dvh] w-full flex-col bg-white pt-[max(0.75rem,env(safe-area-inset-top))] [color-scheme:light]",
         className,
       )}
     >
-      <div className="flex min-h-0 flex-1 flex-col px-3 pt-3">
+      <div className="flex min-h-0 flex-1 flex-col pl-[max(0.75rem,env(safe-area-inset-left))] pr-[max(0.75rem,env(safe-area-inset-right))]">
         <div
           className={cn(
             "mx-auto w-full max-w-md shrink-0 overflow-hidden border border-black/25 bg-black",

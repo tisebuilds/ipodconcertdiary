@@ -1,0 +1,19 @@
+{
+  "name": "Tise's Concert Diary",
+  "short_name": "Concerts",
+  "description": "59 shows. 4 years. Every one of them a memory.",
+  "start_url": "/",
+  "scope": "/",
+  "display": "standalone",
+  "orientation": "portrait-primary",
+  "background_color": "#ffffff",
+  "theme_color": "#ffffff",
+  "icons": [
+    {
+      "src": "/icon.svg",
+      "sizes": "any",
+      "type": "image/svg+xml",
+      "purpose": "any maskable"
+    }
+  ]
+}

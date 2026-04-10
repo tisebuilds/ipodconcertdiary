@@ -1,0 +1,22 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 512 512">
+  <rect width="512" height="512" fill="#ffffff" />
+  <!-- 6th-gen Nanostyle body + LCD + wheel (matches app chrome) -->
+  <rect
+    x="156"
+    y="72"
+    width="200"
+    height="296"
+    rx="28"
+    fill="#e42d7a"
+  />
+  <rect
+    x="176"
+    y="96"
+    width="160"
+    height="132"
+    rx="10"
+    fill="#0a0a0a"
+  />
+  <circle cx="256" cy="310" r="72" fill="#f0f0f0" />
+  <circle cx="256" cy="310" r="22" fill="#d4d4d4" />
+</svg>

@@ -43,7 +43,7 @@ export function MenuView() {
         <span className="flex justify-start">
           <AudioMuteButton />
         </span>
-        <span className="text-center font-sans tracking-tight">
+        <span className="text-center tracking-tight">
           {"Tise's iPod"}
         </span>
         <span className="flex justify-end">

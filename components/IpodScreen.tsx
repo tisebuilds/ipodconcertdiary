@@ -63,7 +63,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
             animate="center"
             exit="exit"
             transition={{ duration, ease }}
-            className="absolute inset-0 flex min-h-0 flex-col will-change-transform"
+            className="absolute inset-0 flex min-h-0 flex-col font-ipod will-change-transform"
           >
             {view === "menu" ? <MenuView /> : null}
             {view === "list" ? <ConcertListView /> : null}
