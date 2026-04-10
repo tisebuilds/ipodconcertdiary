@@ -1,5 +1,6 @@
 "use client";
 
+import { motion } from "framer-motion";
 import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
@@ -7,6 +8,13 @@ import { AudioMuteButton } from "@/components/AudioMuteButton";
 import { ConcertYoutubePlayer } from "@/components/ConcertYoutubePlayer";
 import { useIpod } from "@/components/IpodContext";
 import { concertPhotoSrc, parseYoutubeVideoId } from "@/lib/concert-utils";
+
+const albumArtRevealTransition = {
+  type: "spring" as const,
+  stiffness: 380,
+  damping: 17,
+  mass: 0.72,
+};
 
 export function NowPlayingView() {
   const {
@@ -89,9 +97,14 @@ export function NowPlayingView() {
         >
           <div className="relative min-h-0 flex-1">
             {showArt && photoSrc ? (
-              <div className="relative h-full w-full bg-black">
+              <motion.div
+                key={`art-${currentConcert.id}:${photoSrc}`}
+                className="relative h-full w-full origin-center bg-black"
+                initial={{ scale: 0.68 }}
+                animate={{ scale: 1 }}
+                transition={albumArtRevealTransition}
+              >
                 <Image
-                  key={`${currentConcert.id}:${photoSrc}`}
                   src={photoSrc}
                   alt={artist}
                   fill
@@ -101,16 +114,20 @@ export function NowPlayingView() {
                   unoptimized
                   onError={() => setArtBroken(true)}
                 />
-              </div>
+              </motion.div>
             ) : (
-              <div
-                className="flex h-full w-full items-center justify-center"
+              <motion.div
+                key={`emoji-${currentConcert.id}`}
+                className="flex h-full w-full origin-center items-center justify-center"
                 style={{ background: bg }}
+                initial={{ scale: 0.68 }}
+                animate={{ scale: 1 }}
+                transition={albumArtRevealTransition}
               >
                 <span className="select-none text-[56px] leading-none">
                   {emoji}
                 </span>
-              </div>
+              </motion.div>
             )}
           </div>
         </button>

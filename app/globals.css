@@ -43,51 +43,6 @@ body {
   }
 }
 
-/* Screen stack: forward = pushed in from the right, back = revealed from the left */
-@keyframes slide-forward {
-  from {
-    transform: translateX(5px);
-    opacity: 0.92;
-    filter: blur(0.4px);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-@keyframes slide-back {
-  from {
-    transform: translateX(-5px);
-    opacity: 0.94;
-    filter: blur(0.35px);
-  }
-  to {
-    transform: translateX(0);
-    opacity: 1;
-    filter: blur(0);
-  }
-}
-
-.animate-slide-forward {
-  animation: slide-forward 0.22s cubic-bezier(0.25, 0.9, 0.35, 1) forwards;
-}
-
-.animate-slide-back {
-  animation: slide-back 0.2s cubic-bezier(0.25, 0.9, 0.35, 1) forwards;
-}
-
-@media (prefers-reduced-motion: reduce) {
-  .animate-slide-forward,
-  .animate-slide-back {
-    animation: none;
-    opacity: 1;
-    transform: none;
-    filter: none;
-  }
-}
-
 /* iPod LCD–style vertical scrollbar: pale track, 1px dark rule, sharp blue thumb */
 .ipod-screen-scroll {
   scrollbar-gutter: stable;
