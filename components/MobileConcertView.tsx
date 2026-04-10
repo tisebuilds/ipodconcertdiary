@@ -3,6 +3,7 @@
 import { ClickWheel } from "@/components/ClickWheel";
 import { IpodScreen } from "@/components/IpodScreen";
 import { cn } from "@/lib/cn";
+import { MOBILE_SCREEN_OUTER_RADIUS_CLASS } from "@/lib/mobile-screen-frame";
 
 /** Narrow screens: full viewport, same UI without the plastic shell (PRD §7). */
 export function MobileConcertView({
@@ -18,7 +19,12 @@ export function MobileConcertView({
       )}
     >
       <div className="flex min-h-0 flex-1 flex-col px-3 pt-3">
-        <div className="mx-auto w-full max-w-md shrink-0 overflow-hidden rounded-2xl border border-black/25 bg-black">
+        <div
+          className={cn(
+            "mx-auto w-full max-w-md shrink-0 overflow-hidden border border-black/25 bg-black",
+            MOBILE_SCREEN_OUTER_RADIUS_CLASS,
+          )}
+        >
           <IpodScreen
             embedded
             className="h-[min(355px,max(262px,59.28dvh))] min-h-0"

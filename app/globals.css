@@ -93,22 +93,22 @@ body {
   .ipod-back-etched-title {
     color: color-mix(in srgb, #f8fafc 86%, #a8bed4 14%);
     text-shadow:
-      0 -0.5px 0 rgba(255, 255, 255, 0.11),
-      0 0.65px 0 rgba(0, 0, 0, 0.18);
+      0 -0.55px 0 rgba(255, 255, 255, 0.17),
+      0 0.75px 0 rgba(0, 0, 0, 0.3);
   }
 
   .ipod-back-etched-capacity {
     color: color-mix(in srgb, #faf9f6 72%, #e6dfd4 28%);
     text-shadow:
-      0 -0.4px 0 rgba(255, 255, 255, 0.09),
-      0 0.55px 0 rgba(0, 0, 0, 0.14);
+      0 -0.45px 0 rgba(255, 255, 255, 0.14),
+      0 0.65px 0 rgba(0, 0, 0, 0.24);
   }
 
   .ipod-back-etched-legal {
     color: rgba(236, 230, 223, 0.4);
     text-shadow:
-      0 -0.35px 0 rgba(255, 255, 255, 0.055),
-      0 0.45px 0 rgba(0, 0, 0, 0.12);
+      0 -0.4px 0 rgba(255, 255, 255, 0.1),
+      0 0.55px 0 rgba(0, 0, 0, 0.2);
   }
 }
 

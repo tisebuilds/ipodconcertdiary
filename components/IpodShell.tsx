@@ -98,8 +98,9 @@ const shellBodyStyle: CSSProperties = {
     inset 0 1px 0 rgba(255, 255, 255, 0.26),
     inset 0 -1px 0 rgba(0, 0, 0, 0.14),
     inset 0 0 56px rgba(0, 0, 0, 0.08),
-    0 1px 2px rgba(0, 0, 0, 0.22),
-    0 10px 36px rgba(0, 0, 0, 0.045)
+    2px 5px 8px -2px rgba(0, 0, 0, 0.3),
+    5px 22px 58px -6px rgba(12, 16, 30, 0.1),
+    10px 40px 88px -14px rgba(12, 18, 34, 0.05)
   `,
 };
 

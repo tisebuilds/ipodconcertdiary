@@ -2,6 +2,7 @@
 
 import { AnimatePresence, motion, useReducedMotion } from "framer-motion";
 import { cn } from "@/lib/cn";
+import { MOBILE_SCREEN_OUTER_RADIUS_CLASS } from "@/lib/mobile-screen-frame";
 import { ConcertListView } from "@/components/ConcertListView";
 import { MenuView } from "@/components/MenuView";
 import { NowPlayingView } from "@/components/NowPlayingView";
@@ -47,7 +48,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
       className={cn(
         "relative flex min-h-0 flex-col overflow-hidden bg-black",
         embedded
-          ? "rounded-none border-0"
+          ? cn("border-0", MOBILE_SCREEN_OUTER_RADIUS_CLASS)
           : "rounded-[4px] border border-[#222]",
         className,
       )}
@@ -74,7 +75,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0 z-[1]",
-          embedded ? "rounded-none" : "rounded-[4px]",
+          embedded ? MOBILE_SCREEN_OUTER_RADIUS_CLASS : "rounded-[4px]",
         )}
         style={{
           background: `linear-gradient(

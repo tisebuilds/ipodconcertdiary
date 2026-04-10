@@ -109,14 +109,15 @@
     "artist": "Head In The Clouds",
     "year": 2023,
     "date": "2023-05-20",
-    "highlightSong": "Merry Go Round",
+    "highlightSong": "2NE1 LIVE PERFORMANCE",
     "photo": "/concerts/hitc-2023.png",
     "accentColor": "#ff6b35",
     "venue": "Head In The Clouds Festival",
     "city": "Los Angeles, CA",
     "notes": "May 20–21, 2023",
     "emoji": "☁️",
-    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)"
+    "bg": "linear-gradient(135deg,#1a0a00,#3d1800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=wm6yv-VeQ64"
   },
   {
     "id": "coin-slope-day-2023",
@@ -130,21 +131,23 @@
     "city": "Ithaca, NY",
     "notes": null,
     "emoji": "🪙",
-    "bg": "linear-gradient(135deg,#001a1b,#003336)"
+    "bg": "linear-gradient(135deg,#001a1b,#003336)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=WgLaIIefJ3w"
   },
   {
     "id": "gov-ball-2023",
     "artist": "Gov Ball",
     "year": 2023,
     "date": "2023-06-09",
-    "highlightSong": "Festival Weekend",
+    "highlightSong": "Tyla - No.1 feat Tems",
     "photo": "/concerts/gov-ball-2023.png",
     "accentColor": "#43aa8b",
     "venue": "Governors Ball",
     "city": "New York, NY",
     "notes": "June 9–11, 2023",
     "emoji": "🎪",
-    "bg": "linear-gradient(135deg,#001a10,#003322)"
+    "bg": "linear-gradient(135deg,#001a10,#003322)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=Ts8RGi8V-FM"
   },
   {
     "id": "twice-2023",
@@ -181,42 +184,45 @@
     "artist": "Coco Jones",
     "year": 2023,
     "date": "2023-09-06",
-    "highlightSong": "ICU",
+    "highlightSong": "Double Back and Rain",
     "photo": "/concerts/coco-jones-2023.png",
     "accentColor": "#f4d03f",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🌙",
-    "bg": "linear-gradient(135deg,#1c1000,#3d2800)"
+    "bg": "linear-gradient(135deg,#1c1000,#3d2800)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=MQFLp6tBdHE"
   },
   {
     "id": "everglow-2023",
     "artist": "Everglow",
     "year": 2023,
     "date": "2023-11-08",
-    "highlightSong": "DUN DUN",
+    "highlightSong": "Pirate",
     "photo": "/concerts/everglow-2023.png",
     "accentColor": "#e74c3c",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "⚡",
-    "bg": "linear-gradient(135deg,#1a0000,#3d0000)"
+    "bg": "linear-gradient(135deg,#1a0000,#3d0000)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=7itF1fUsLzY"
   },
   {
     "id": "odd-eye-circle-2024",
     "artist": "Odd Eye Circle",
     "year": 2024,
     "date": "2024-01-12",
-    "highlightSong": "Girl Front",
+    "highlightSong": "Singing in the Rain",
     "photo": "/concerts/odd-eye-circle-2024.png",
     "accentColor": "#e91e8c",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "👁️",
-    "bg": "linear-gradient(135deg,#1a0015,#33002a)"
+    "bg": "linear-gradient(135deg,#1a0015,#33002a)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=FGYCkHAqBmc"
   },
   {
     "id": "ive-2024",
@@ -281,14 +287,15 @@
     "artist": "TXT",
     "year": 2024,
     "date": "2024-06-01",
-    "highlightSong": "0X1=LOVESONG",
+    "highlightSong": "9 and Three Quarters",
     "photo": "/concerts/txt-2024.png",
     "accentColor": "#9b5de5",
     "venue": null,
     "city": null,
     "notes": null,
     "emoji": "🌑",
-    "bg": "linear-gradient(135deg,#0d0019,#1a0033)"
+    "bg": "linear-gradient(135deg,#0d0019,#1a0033)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=OPznQXg6QNg"
   },
   {
     "id": "flo-after-dark-2024",
@@ -433,7 +440,8 @@
     "city": null,
     "notes": null,
     "emoji": "🎶",
-    "bg": "linear-gradient(135deg,#001a19,#003332)"
+    "bg": "linear-gradient(135deg,#001a19,#003332)",
+    "youtubeVideoId": "https://www.youtube.com/watch?v=toF4ee3n-vo"
   },
   {
     "id": "yves-2025",
@@ -615,7 +623,7 @@
     "artist": "ENHYPEN",
     "year": 2025,
     "date": "2025-08-07",
-    "highlightSong": "Given-Taken/No doubt",
+    "highlightSong": "Given-Taken",
     "photo": "/concerts/enhypen-2025.png",
     "accentColor": "#4361ee",
     "venue": null,
@@ -630,7 +638,7 @@
     "artist": "LE SSERAFIM",
     "year": 2025,
     "date": "2025-09-03",
-    "highlightSong": "1-800-hot-n-fun",
+    "highlightSong": "Perfect Night",
     "photo": "/concerts/le-sserafim-2025.png",
     "accentColor": "#e63946",
     "venue": null,
@@ -638,7 +646,7 @@
     "notes": null,
     "emoji": "🦅",
     "bg": "linear-gradient(135deg,#1a0000,#3d0000)",
-    "youtubeVideoId": "https://www.youtube.com/watch?v=rGD5U8u1Dk0"
+    "youtubeVideoId": "https://www.youtube.com/watch?v=MwqZoMVf6ds"
   },
   {
     "id": "the-boyz-2025",
