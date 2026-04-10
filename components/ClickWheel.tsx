@@ -91,16 +91,17 @@ export function ClickWheel() {
 
   return (
     <div
-      className="relative mx-auto shrink-0"
+      className="relative mx-auto flex shrink-0 items-center justify-center"
       style={{
         width: "var(--ipod-wheel-size, 172px)",
         height: "var(--ipod-wheel-size, 172px)",
       }}
     >
+      {/* Flex-center the artboard so scale() stays visually centered under 3D / translateZ ancestors */}
       <div
-        className="absolute left-1/2 top-1/2 h-[172px] w-[172px] origin-center will-change-transform"
+        className="relative h-[172px] w-[172px] origin-center will-change-transform"
         style={{
-          transform: `translate(-50%, -50%) ${wheelScale}`,
+          transform: wheelScale,
         }}
       >
         <div

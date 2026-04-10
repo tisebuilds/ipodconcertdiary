@@ -203,7 +203,7 @@ export function IpodShell() {
               iPod nano
             </div>
 
-            <div className="mt-1 shrink-0">
+            <div className="mt-1 flex w-full shrink-0 justify-center">
               <ClickWheel />
             </div>
           </div>

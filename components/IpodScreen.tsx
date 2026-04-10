@@ -71,10 +71,27 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
           </motion.div>
         </AnimatePresence>
       </div>
-      {/* Glass cover: diagonal highlight like physical LCD stack */}
+      {/* LCD scan lines: static horizontal bands (under glass highlight) */}
       <div
         className={cn(
           "pointer-events-none absolute inset-0 z-[1]",
+          embedded ? MOBILE_SCREEN_OUTER_RADIUS_CLASS : "rounded-[4px]",
+        )}
+        style={{
+          background: `repeating-linear-gradient(
+            to bottom,
+            transparent 0,
+            transparent 2px,
+            rgba(0, 0, 0, 0.045) 2px,
+            rgba(0, 0, 0, 0.045) 3px
+          )`,
+        }}
+        aria-hidden
+      />
+      {/* Glass cover: diagonal highlight like physical LCD stack */}
+      <div
+        className={cn(
+          "pointer-events-none absolute inset-0 z-[2]",
           embedded ? MOBILE_SCREEN_OUTER_RADIUS_CLASS : "rounded-[4px]",
         )}
         style={{
