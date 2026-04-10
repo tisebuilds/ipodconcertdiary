@@ -48,7 +48,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
         "relative flex min-h-0 flex-col overflow-hidden bg-black",
         embedded
           ? "rounded-none border-0"
-          : "rounded-[3px] border border-[#222]",
+          : "rounded-[4px] border border-[#222]",
         className,
       )}
     >
@@ -74,7 +74,7 @@ export function IpodScreen({ className, embedded = false }: IpodScreenProps) {
       <div
         className={cn(
           "pointer-events-none absolute inset-0 z-[1]",
-          embedded ? "rounded-none" : "rounded-[2px]",
+          embedded ? "rounded-none" : "rounded-[4px]",
         )}
         style={{
           background: `linear-gradient(

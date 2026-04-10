@@ -1,13 +1,24 @@
 "use client";
 
+import { motion, useReducedMotion } from "framer-motion";
 import Image from "next/image";
 import { useEffect, useState, type CSSProperties } from "react";
 import { ClickWheel } from "@/components/ClickWheel";
 import { IpodScreen } from "@/components/IpodScreen";
+import { LcdBezel } from "@/components/LcdBezel";
 import { cn } from "@/lib/cn";
 
 /** Fixed layout width for iPod nano–style shell (narrow + tall). */
 const SHELL_WIDTH_PX = 236;
+
+/** Corner radius language: chassis > LCD bezel > active glass (concentric product read). */
+const SHELL_RADIUS_CLASS = "rounded-[6px]";
+
+/** Flip: ~ease-out with a hint of ease-in at the start (less “modal”, more physical). */
+const FLIP_EASE = [0.18, 0.045, 0.22, 1] as const;
+
+/** Subtle mid-flip scale dip — paired with rotateY; keep close to 1 to avoid cartoon perspective. */
+const FLIP_SCALE_MID = 0.987;
 
 function useShellScale() {
   const [scale, setScale] = useState(1);
@@ -87,7 +98,8 @@ const shellBodyStyle: CSSProperties = {
     inset 0 1px 0 rgba(255, 255, 255, 0.26),
     inset 0 -1px 0 rgba(0, 0, 0, 0.14),
     inset 0 0 56px rgba(0, 0, 0, 0.08),
-    0 1px 4px rgba(0, 0, 0, 0.1)
+    0 1px 2px rgba(0, 0, 0, 0.22),
+    0 10px 36px rgba(0, 0, 0, 0.045)
   `,
 };
 
@@ -107,13 +119,17 @@ function AppleLogo({ className }: { className?: string }) {
 
 export function IpodShell() {
   const scale = useShellScale();
+  const reduceMotion = useReducedMotion();
   const [flipped, setFlipped] = useState(false);
+  /** Avoid running scale keyframes on first paint (only after user has flipped once). */
+  const [flipInteractionCount, setFlipInteractionCount] = useState(0);
 
   useEffect(() => {
     const onKeyDown = (e: KeyboardEvent) => {
       if (e.code !== "Space") return;
       if (isEditableTarget(e.target)) return;
       e.preventDefault();
+      setFlipInteractionCount((n) => n + 1);
       setFlipped((f) => !f);
     };
     window.addEventListener("keydown", onKeyDown);
@@ -133,16 +149,40 @@ export function IpodShell() {
         className="relative mx-auto"
         style={{ perspective: "1100px", width: SHELL_WIDTH_PX }}
       >
-        <div
-          className="relative transition-transform duration-500 ease-out [transform-style:preserve-3d]"
-          style={{
-            transform: flipped ? "rotateY(180deg)" : "rotateY(0deg)",
-          }}
+        <motion.div
+          className="relative will-change-transform [transform-style:preserve-3d]"
+          initial={false}
+          animate={
+            reduceMotion
+              ? { rotateY: flipped ? 180 : 0, scale: 1 }
+              : {
+                  rotateY: flipped ? 180 : 0,
+                  scale:
+                    flipInteractionCount > 0
+                      ? [1, FLIP_SCALE_MID, 1]
+                      : 1,
+                }
+          }
+          transition={
+            reduceMotion
+              ? { duration: 0 }
+              : flipInteractionCount > 0
+                ? {
+                    rotateY: { duration: 0.5, ease: FLIP_EASE },
+                    scale: {
+                      duration: 0.5,
+                      times: [0, 0.5, 1],
+                      ease: [FLIP_EASE, FLIP_EASE],
+                    },
+                  }
+                : { rotateY: { duration: 0.5, ease: FLIP_EASE } }
+          }
         >
           {/* Front */}
           <div
             className={cn(
-              "relative rounded-[2px] border border-black/[0.09] px-3 pb-4 pt-5 [backface-visibility:hidden] [transform:translateZ(0.1px)]",
+              "relative border border-black/[0.09] px-3 pb-4 pt-5 [backface-visibility:hidden] [transform:translateZ(0.1px)]",
+              SHELL_RADIUS_CLASS,
               flipped && "pointer-events-none",
             )}
             style={shellBodyStyle}
@@ -154,9 +194,9 @@ export function IpodShell() {
               aria-hidden
             />
 
-            <div className="rounded-[5px] border border-[#2a2a2a] bg-[#141414] p-[9px]">
+            <LcdBezel>
               <IpodScreen className="h-[256px]" />
-            </div>
+            </LcdBezel>
 
             <div className="select-none py-1.5 text-center text-[9px] font-semibold tracking-[0.42em] opacity-0">
               iPod nano
@@ -170,7 +210,8 @@ export function IpodShell() {
           {/* Back */}
           <div
             className={cn(
-              "absolute inset-0 flex flex-col items-center rounded-[2px] border border-black/[0.09] px-4 pb-5 pt-8 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(0.1px)]",
+              "absolute inset-0 flex flex-col items-center border border-black/[0.09] px-4 pb-5 pt-8 [backface-visibility:hidden] [transform:rotateY(180deg)_translateZ(0.1px)]",
+              SHELL_RADIUS_CLASS,
               !flipped && "pointer-events-none",
             )}
             style={shellBodyStyle}
@@ -186,22 +227,22 @@ export function IpodShell() {
             </div>
 
             <AppleLogo className="h-14 w-12" />
-            <div className="mt-3 w-full text-center font-[system-ui] text-[22px] font-light tracking-[0.02em] text-white/90">
+            <div className="ipod-back-etched-title mt-3 w-full text-center font-[system-ui] text-[22px] font-light tracking-[0.02em]">
               <p className="leading-none">iPod</p>
               <p className="mt-1.5 leading-tight">Concert Diary</p>
             </div>
             <div className="mt-auto w-full pt-6">
-              <div className="mx-auto w-fit rounded-sm border border-white/20 bg-black/10 px-2 py-0.5 text-center text-[10px] font-medium text-white/75">
+              <div className="ipod-back-etched-capacity mx-auto w-fit rounded-sm border border-white/20 bg-black/10 px-2 py-0.5 text-center text-[10px] font-medium">
                 8GB
               </div>
-              <p className="mt-3 text-center text-[5px] leading-relaxed text-white/35">
+              <p className="ipod-back-etched-legal mt-3 text-center text-[5px] leading-relaxed">
                 Model A1320 · Riff by Tise in New York City. Assembled in Cursor.
                 <br />
                 FCC ID: BCGA1320 IC: 579C-A1320
               </p>
             </div>
           </div>
-        </div>
+        </motion.div>
       </div>
     </div>
   );
