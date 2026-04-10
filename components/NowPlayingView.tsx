@@ -63,7 +63,7 @@ export function NowPlayingView() {
     );
   }
 
-  const { artist, highlightSong, accentColor, emoji, bg } = currentConcert;
+  const { artist, highlightSong, emoji, bg } = currentConcert;
   const showArt = Boolean(photoSrc) && !artBroken;
 
   const useYtProgress = Boolean(ytId && ytTimes.durationMs > 0);
@@ -155,7 +155,6 @@ export function NowPlayingView() {
           </div>
           <div className="mt-2">
             <ProgressBar
-              accentColor={accentColor}
               progress={progressForBar}
               elapsedMs={elapsedForBar}
               durationMs={durationForBar}

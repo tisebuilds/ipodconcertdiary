@@ -58,7 +58,7 @@ export function MenuView() {
               key={row.label === "Shuffle" ? "shuffle" : row.label}
               type="button"
               className={cn(
-                "flex w-full cursor-pointer items-center justify-between border-b border-black/[0.07] px-2.5 py-1.5 text-left font-inherit transition-[background,filter,box-shadow] duration-150 ease-out",
+                "flex w-full cursor-pointer items-center justify-between border-b border-black/[0.07] px-2.5 py-1.5 text-left font-inherit transition-[background,filter,box-shadow] duration-150 ease-out max-[399px]:min-h-[48px] max-[399px]:py-2.5",
                 selected
                   ? "bg-gradient-to-b from-[#4B89D6] to-[#245DB3] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_0_0_1px_rgba(255,255,255,0.12),0_2px_10px_rgba(36,93,179,0.28)] hover:brightness-[1.03] active:brightness-[0.97]"
                   : "bg-transparent shadow-none hover:bg-black/[0.04] active:bg-black/[0.07]",

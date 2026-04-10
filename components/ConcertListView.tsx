@@ -19,20 +19,22 @@ function ListRowArt({ concert }: { concert: Concert }) {
 
   if (!src || broken) {
     return (
-      <span className="shrink-0 text-[13px] leading-none">{concert.emoji}</span>
+      <span className="shrink-0 text-[13px] leading-none max-[399px]:text-[16px]">
+        {concert.emoji}
+      </span>
     );
   }
 
   return (
-    <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10">
+    <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10 max-[399px]:h-[30px] max-[399px]:w-[30px]">
       <Image
         key={`${concert.id}:${src}`}
         src={src}
         alt={concert.artist}
-        width={22}
-        height={22}
-        className="h-[22px] w-[22px] object-cover"
-        sizes="22px"
+        width={30}
+        height={30}
+        className="h-[22px] w-[22px] max-[399px]:h-[30px] max-[399px]:w-[30px] object-cover"
+        sizes="(max-width: 399px) 30px, 22px"
         unoptimized
         onError={() => setBroken(true)}
       />
@@ -67,14 +69,14 @@ export function ConcertListView() {
               key={c.id}
               type="button"
               className={cn(
-                "flex w-full cursor-pointer items-center justify-between gap-1 border-b border-black/[0.07] px-2.5 py-1.5 text-left font-inherit transition-[background,filter,box-shadow] duration-150 ease-out",
+                "flex w-full cursor-pointer items-center justify-between gap-1 border-b border-black/[0.07] px-2.5 py-1.5 text-left font-inherit transition-[background,filter,box-shadow] duration-150 ease-out max-[399px]:min-h-[48px] max-[399px]:py-2.5 max-[399px]:gap-1.5",
                 selected
                   ? "bg-gradient-to-b from-[#4B89D6] to-[#245DB3] text-white shadow-[inset_0_1px_0_rgba(255,255,255,0.38),0_0_0_1px_rgba(255,255,255,0.12),0_2px_10px_rgba(36,93,179,0.28)] hover:brightness-[1.03] active:brightness-[0.97]"
                   : "bg-transparent shadow-none hover:bg-black/[0.04] active:bg-black/[0.07]",
               )}
               onClick={() => listRowActivate(i)}
             >
-              <span className="flex min-w-0 items-center gap-1.5">
+              <span className="flex min-w-0 items-center gap-1.5 max-[399px]:gap-2">
                 <ListRowArt concert={c} />
                 <span
                   className={cn(

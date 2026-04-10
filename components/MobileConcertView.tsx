@@ -27,7 +27,7 @@ export function MobileConcertView({
         >
           <IpodScreen
             embedded
-            className="h-[min(355px,max(262px,59.28dvh))] min-h-0"
+            className="h-[min(377px,max(279px,63dvh))] min-h-0"
           />
         </div>
         {/* Fills space below the capped screen so the clickwheel sits lower with visible gap */}

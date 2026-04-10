@@ -3,6 +3,68 @@
 import { cn } from "@/lib/cn";
 import { useIpod } from "@/components/IpodContext";
 
+/** Shared 24×24 frame; all media glyphs sit in y=6..18 (12px) for optical alignment. */
+const WHEEL_MEDIA_ICON =
+  "pointer-events-none h-[0.9rem] w-[0.9rem] shrink-0";
+
+function SkipBackIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <rect x="4" y="6" width="2" height="12" rx="0.5" />
+      <path d="M9 12 15 7 15 17 9 12zM16 12 22 7 22 17 16 12z" />
+    </svg>
+  );
+}
+
+function SkipForwardIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path d="M15 12 9 7 9 17 15 12zM9 12 3 7 3 17 9 12z" />
+      <rect x="18" y="6" width="2" height="12" rx="0.5" />
+    </svg>
+  );
+}
+
+function PlayIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path d="M9 6v12l9-6-9-6z" />
+    </svg>
+  );
+}
+
+function PauseIcon({ className }: { className?: string }) {
+  return (
+    <svg
+      className={className}
+      viewBox="0 0 24 24"
+      fill="currentColor"
+      xmlns="http://www.w3.org/2000/svg"
+      aria-hidden
+    >
+      <path d="M8.5 6h2.5v12h-2.5V6zm4.5 0h2.5v12H13V6z" />
+    </svg>
+  );
+}
+
 export function ClickWheel() {
   const {
     menuButton,
@@ -59,12 +121,12 @@ export function ClickWheel() {
           aria-label="Previous"
           className={cn(
             segmentPress,
-            "absolute left-[22px] top-1/2 -translate-y-1/2 text-[12px] text-[#6e6e6e]",
+            "absolute left-[22px] top-1/2 flex -translate-y-1/2 items-center justify-center text-[#6e6e6e]",
             "active:translate-x-[3px] active:-translate-y-1/2",
           )}
           onClick={scrollUp}
         >
-          ⏮
+          <SkipBackIcon className={WHEEL_MEDIA_ICON} />
         </button>
 
         <button
@@ -72,12 +134,12 @@ export function ClickWheel() {
           aria-label="Next"
           className={cn(
             segmentPress,
-            "absolute right-[22px] top-1/2 -translate-y-1/2 text-[12px] text-[#6e6e6e]",
+            "absolute right-[22px] top-1/2 flex -translate-y-1/2 items-center justify-center text-[#6e6e6e]",
             "active:-translate-x-[3px] active:-translate-y-1/2",
           )}
           onClick={scrollDown}
         >
-          ⏭
+          <SkipForwardIcon className={WHEEL_MEDIA_ICON} />
         </button>
 
         <button
@@ -85,7 +147,7 @@ export function ClickWheel() {
           aria-label="Play or pause"
           className={cn(
             segmentPress,
-            "absolute bottom-[21px] left-1/2 -translate-x-1/2 text-[14px] leading-none text-[#6e6e6e]",
+            "absolute bottom-[21px] left-1/2 flex -translate-x-1/2 items-center justify-center gap-px text-[#6e6e6e]",
             "active:-translate-x-1/2 active:translate-y-[3px]",
             view !== "nowPlaying" &&
               "cursor-default opacity-35 hover:opacity-35 active:translate-y-0 active:brightness-100",
@@ -93,7 +155,8 @@ export function ClickWheel() {
           onClick={onPlayRing}
           disabled={view !== "nowPlaying"}
         >
-          ▶⏸
+          <PlayIcon className={WHEEL_MEDIA_ICON} />
+          <PauseIcon className={WHEEL_MEDIA_ICON} />
         </button>
 
         <button

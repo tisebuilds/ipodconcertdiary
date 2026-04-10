@@ -3,14 +3,19 @@
 import { formatTrackTime } from "@/lib/concert-utils";
 
 type ProgressBarProps = {
-  accentColor: string;
   progress: number;
   elapsedMs: number;
   durationMs: number;
 };
 
+/** iOS-style skeuomorphic scrubber: glossy blue fill, light track, thin bezel. */
+const scrubberFillStyle = {
+  background:
+    "linear-gradient(to bottom, #b8dcff 0%, #6eb4f0 38%, #3d94e0 72%, #2a7fd0 100%)",
+  boxShadow: "inset 0 1px 0 rgba(255, 255, 255, 0.45)",
+} as const;
+
 export function ProgressBar({
-  accentColor,
   progress,
   elapsedMs,
   durationMs,
@@ -23,15 +28,12 @@ export function ProgressBar({
   return (
     <div className="flex items-center gap-1.5 text-[8px] tabular-nums text-white/40">
       <span>{formatTrackTime(elapsedSec)}</span>
-      <div className="relative h-1 min-w-0 flex-1 overflow-hidden rounded-full bg-white/15">
+      <div className="relative h-[5px] min-w-0 flex-1 overflow-hidden rounded-full border border-black/45 bg-gradient-to-b from-[#f8f8fa] to-[#c8ccd4] shadow-[inset_0_1px_2px_rgba(0,0,0,0.18)]">
         <div
           className="h-full rounded-full transition-[width] duration-100 ease-linear"
           style={{
             width: `${pct}%`,
-            backgroundColor: accentColor,
-            transitionProperty: "width, background-color",
-            transitionDuration: "100ms, 400ms",
-            transitionTimingFunction: "linear, ease",
+            ...scrubberFillStyle,
           }}
         />
       </div>

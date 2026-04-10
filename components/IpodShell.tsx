@@ -196,7 +196,7 @@ export function IpodShell() {
             />
 
             <LcdBezel>
-              <IpodScreen className="h-[256px]" />
+              <IpodScreen className="h-[272px]" />
             </LcdBezel>
 
             <div className="select-none py-1.5 text-center text-[9px] font-semibold tracking-[0.42em] opacity-0">
