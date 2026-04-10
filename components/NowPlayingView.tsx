@@ -1,7 +1,6 @@
 "use client";
 
 import { motion } from "framer-motion";
-import Image from "next/image";
 import { useCallback, useEffect, useState } from "react";
 import { ProgressBar } from "@/components/ProgressBar";
 import { AudioMuteButton } from "@/components/AudioMuteButton";
@@ -104,14 +103,15 @@ export function NowPlayingView() {
                 animate={{ scale: 1 }}
                 transition={albumArtRevealTransition}
               >
-                <Image
+                {/* Local /public assets; Next/Image inside motion scale can paint blank in WebKit */}
+                {/* eslint-disable-next-line @next/next/no-img-element */}
+                <img
                   src={photoSrc}
                   alt={artist}
-                  fill
-                  className="object-contain"
-                  sizes="220px"
-                  priority
-                  unoptimized
+                  className="h-full w-full object-contain [transform:translateZ(0)]"
+                  loading="eager"
+                  decoding="async"
+                  fetchPriority="high"
                   onError={() => setArtBroken(true)}
                 />
               </motion.div>

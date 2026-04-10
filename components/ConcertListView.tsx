@@ -1,6 +1,5 @@
 "use client";
 
-import Image from "next/image";
 import { useEffect, useState } from "react";
 import { cn } from "@/lib/cn";
 import { concertPhotoSrc, formatShortDate } from "@/lib/concert-utils";
@@ -27,15 +26,16 @@ function ListRowArt({ concert }: { concert: Concert }) {
 
   return (
     <span className="relative h-[22px] w-[22px] shrink-0 overflow-hidden rounded-[3px] border border-black/15 bg-black/10 max-[399px]:h-[30px] max-[399px]:w-[30px]">
-      <Image
+      {/* eslint-disable-next-line @next/next/no-img-element */}
+      <img
         key={`${concert.id}:${src}`}
         src={src}
         alt={concert.artist}
         width={30}
         height={30}
         className="h-[22px] w-[22px] max-[399px]:h-[30px] max-[399px]:w-[30px] object-cover"
-        sizes="(max-width: 399px) 30px, 22px"
-        unoptimized
+        loading="lazy"
+        decoding="async"
         onError={() => setBroken(true)}
       />
     </span>
